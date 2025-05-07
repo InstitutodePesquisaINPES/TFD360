@@ -1,19 +1,16 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Configuração do banco de dados PostgreSQL
+// Configuração do banco de dados MySQL
 const sequelize = new Sequelize(
   process.env.DB_NAME || 'tfd360',
-  process.env.DB_USER || 'postgres',
-  process.env.DB_PASS || 'postgres',
+  process.env.DB_USER || 'root',
+  process.env.DB_PASS || 'admin',
   {
     host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
-    dialect: 'postgres',
+    port: process.env.DB_PORT || 3306,
+    dialect: 'mysql',
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
-    dialectOptions: {
-      ssl: process.env.NODE_ENV === 'production'
-    },
     pool: {
       max: 5,
       min: 0,
@@ -27,10 +24,10 @@ const sequelize = new Sequelize(
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
-    console.log('Conexão com o banco de dados estabelecida com sucesso.');
+    console.log('Conexão com o MySQL estabelecida com sucesso.');
     return true;
   } catch (error) {
-    console.error('Não foi possível conectar ao banco de dados:', error);
+    console.error('Não foi possível conectar ao banco de dados MySQL:', error);
     return false;
   }
 };

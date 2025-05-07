@@ -26,7 +26,10 @@
     },
     "overrides": [
       {
-        "files": ["**/DocumentoUpload.tsx", "**/DocumentoList.tsx"],
+        "files": [
+          "**/DocumentoUpload.tsx",
+          "**/DocumentoList.tsx"
+        ],
         "rules": {
           "jsx-a11y/label-has-associated-control": "off",
           "jsx-a11y/accessible-select-element": "off",
@@ -38,8 +41,12 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.17.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@heroicons/react": "^2.2.0",
     "axios": "^1.6.2",
+    "framer-motion": "^12.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",

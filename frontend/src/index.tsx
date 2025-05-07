@@ -1,8 +1,15 @@
 /* @refresh reload */
-import { render } from 'solid-js/web'
-import './index.css'
-import App from './App.tsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App.tsx';
 
-const root = document.getElementById('root')
+const root = document.getElementById('root');
 
-render(() => <App />, root!)
+if (root) {
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

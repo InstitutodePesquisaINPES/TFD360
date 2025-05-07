@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middlewares/auth.middleware');
+const { verificarToken, verificarAdmin } = require('../middlewares/auth.middleware');
 const agendamentoRelatorioController = require('../controllers/agendamento-relatorio.controller');
 
 /**
@@ -12,7 +12,7 @@ const agendamentoRelatorioController = require('../controllers/agendamento-relat
  *     security:
  *       - bearerAuth: []
  */
-router.get('/', auth.verificarToken, agendamentoRelatorioController.listarAgendamentos);
+router.get('/', verificarToken, agendamentoRelatorioController.listarAgendamentos);
 
 /**
  * @swagger
@@ -29,7 +29,7 @@ router.get('/', auth.verificarToken, agendamentoRelatorioController.listarAgenda
  *         schema:
  *           type: string
  */
-router.get('/:id', auth.verificarToken, agendamentoRelatorioController.obterPorId);
+router.get('/:id', verificarToken, agendamentoRelatorioController.obterPorId);
 
 /**
  * @swagger
@@ -40,7 +40,7 @@ router.get('/:id', auth.verificarToken, agendamentoRelatorioController.obterPorI
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', auth.verificarToken, agendamentoRelatorioController.criarAgendamento);
+router.post('/', verificarToken, agendamentoRelatorioController.criarAgendamento);
 
 /**
  * @swagger
@@ -57,7 +57,7 @@ router.post('/', auth.verificarToken, agendamentoRelatorioController.criarAgenda
  *         schema:
  *           type: string
  */
-router.put('/:id', auth.verificarToken, agendamentoRelatorioController.atualizarAgendamento);
+router.put('/:id', verificarToken, agendamentoRelatorioController.atualizarAgendamento);
 
 /**
  * @swagger
@@ -74,7 +74,7 @@ router.put('/:id', auth.verificarToken, agendamentoRelatorioController.atualizar
  *         schema:
  *           type: string
  */
-router.patch('/:id/status', auth.verificarToken, agendamentoRelatorioController.alterarStatus);
+router.patch('/:id/status', verificarToken, agendamentoRelatorioController.alterarStatus);
 
 /**
  * @swagger
@@ -91,7 +91,7 @@ router.patch('/:id/status', auth.verificarToken, agendamentoRelatorioController.
  *         schema:
  *           type: string
  */
-router.delete('/:id', auth.verificarToken, agendamentoRelatorioController.removerAgendamento);
+router.delete('/:id', verificarToken, agendamentoRelatorioController.removerAgendamento);
 
 /**
  * @swagger
@@ -108,7 +108,7 @@ router.delete('/:id', auth.verificarToken, agendamentoRelatorioController.remove
  *         schema:
  *           type: string
  */
-router.post('/:id/executar', auth.verificarToken, agendamentoRelatorioController.executarAgendamento);
+router.post('/:id/executar', verificarToken, agendamentoRelatorioController.executarAgendamento);
 
 /**
  * @swagger
@@ -120,6 +120,6 @@ router.post('/:id/executar', auth.verificarToken, agendamentoRelatorioController
  *     security:
  *       - bearerAuth: []
  */
-router.post('/processar-pendentes', auth.verificarToken, auth.verificarAdmin, agendamentoRelatorioController.processarPendentes);
+router.post('/processar-pendentes', verificarToken, verificarAdmin, agendamentoRelatorioController.processarPendentes);
 
 module.exports = router; 
