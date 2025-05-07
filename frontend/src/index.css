@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply h-full w-full;
+  }
+  
+  #root {
+    @apply h-full w-full;
+  }
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Configurações de acessibilidade */
+.accessibility-exempt {
+  /* Aplicar estilos visuais, se necessário */
+}
+
+/* Garantir que os elementos com data-axe-ignore sejam tratados corretamente */
+[data-axe-ignore="true"] {
+  /* Sem estilos visuais, apenas para seleção */
+}
+
+/* Garantir que os selects sejam acessíveis visualmente */
+select, 
+.chakra-select,
+[role="combobox"] {
+  /* Estilos de acessibilidade visual se necessário */
+  outline-color: var(--chakra-colors-blue-500) !important;
+  outline-width: 2px !important;
+  outline-offset: 2px !important;
+}
+
+select:focus, 
+.chakra-select:focus,
+[role="combobox"]:focus {
+  outline-style: solid !important;
+}
+
+/* Melhorando o contraste de textos para acessibilidade */
+label, 
+.chakra-form__label {
+  font-weight: medium !important;
+}
+
+/* Garantindo espaçamento adequado para elementos de formulário */
+.chakra-form__error-message {
+  margin-top: 0.25rem !important;
+}
+
+/* Melhorar visibilidade de elementos obrigatórios */
+.chakra-form__required-indicator {
+  color: var(--chakra-colors-red-500) !important;
+  font-weight: bold !important;
+}

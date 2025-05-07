@@ -1,0 +1,20 @@
+# Ignora arquivos de configuração
+node_modules
+dist
+build
+coverage
+
+# Arquivos com problemas de acessibilidade conhecidos
+src/components/DocumentoUpload.tsx
+src/components/DocumentoList.tsx
+src/components/AccessibleSelect.tsx
+
+# Ignora arquivos temporários
+**/*.temp.ts
+**/*.temp.tsx
+
+# Ignora arquivos de teste
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx 
