@@ -12,7 +12,7 @@ const agendamentoRelatorioController = require('../controllers/agendamento-relat
  *     security:
  *       - bearerAuth: []
  */
-router.get('/', auth.verificaToken, agendamentoRelatorioController.listarAgendamentos);
+router.get('/', auth.verificarToken, agendamentoRelatorioController.listarAgendamentos);
 
 /**
  * @swagger
@@ -29,7 +29,7 @@ router.get('/', auth.verificaToken, agendamentoRelatorioController.listarAgendam
  *         schema:
  *           type: string
  */
-router.get('/:id', auth.verificaToken, agendamentoRelatorioController.obterPorId);
+router.get('/:id', auth.verificarToken, agendamentoRelatorioController.obterPorId);
 
 /**
  * @swagger
@@ -40,7 +40,7 @@ router.get('/:id', auth.verificaToken, agendamentoRelatorioController.obterPorId
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', auth.verificaToken, agendamentoRelatorioController.criarAgendamento);
+router.post('/', auth.verificarToken, agendamentoRelatorioController.criarAgendamento);
 
 /**
  * @swagger
@@ -57,7 +57,7 @@ router.post('/', auth.verificaToken, agendamentoRelatorioController.criarAgendam
  *         schema:
  *           type: string
  */
-router.put('/:id', auth.verificaToken, agendamentoRelatorioController.atualizarAgendamento);
+router.put('/:id', auth.verificarToken, agendamentoRelatorioController.atualizarAgendamento);
 
 /**
  * @swagger
@@ -74,7 +74,7 @@ router.put('/:id', auth.verificaToken, agendamentoRelatorioController.atualizarA
  *         schema:
  *           type: string
  */
-router.patch('/:id/status', auth.verificaToken, agendamentoRelatorioController.alterarStatus);
+router.patch('/:id/status', auth.verificarToken, agendamentoRelatorioController.alterarStatus);
 
 /**
  * @swagger
@@ -91,7 +91,7 @@ router.patch('/:id/status', auth.verificaToken, agendamentoRelatorioController.a
  *         schema:
  *           type: string
  */
-router.delete('/:id', auth.verificaToken, agendamentoRelatorioController.removerAgendamento);
+router.delete('/:id', auth.verificarToken, agendamentoRelatorioController.removerAgendamento);
 
 /**
  * @swagger
@@ -108,7 +108,7 @@ router.delete('/:id', auth.verificaToken, agendamentoRelatorioController.remover
  *         schema:
  *           type: string
  */
-router.post('/:id/executar', auth.verificaToken, agendamentoRelatorioController.executarAgendamento);
+router.post('/:id/executar', auth.verificarToken, agendamentoRelatorioController.executarAgendamento);
 
 /**
  * @swagger
@@ -120,6 +120,6 @@ router.post('/:id/executar', auth.verificaToken, agendamentoRelatorioController.
  *     security:
  *       - bearerAuth: []
  */
-router.post('/processar-pendentes', auth.verificaToken, auth.verificaAdmin, agendamentoRelatorioController.processarPendentes);
+router.post('/processar-pendentes', auth.verificarToken, auth.verificarAdmin, agendamentoRelatorioController.processarPendentes);
 
 module.exports = router; 
